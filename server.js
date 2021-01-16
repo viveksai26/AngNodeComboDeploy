@@ -6,7 +6,7 @@ const app = require('./server/app')
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/user-management'));
-app.use('/api', app);
+// app.use('/api', app);
 app.get('/*', function(req,res) {
     
 res.sendFile(path.join(__dirname+'/dist/user-management/index.html'));
