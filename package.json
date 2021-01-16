@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-server": "node ./server/bin/www",
-    "start-nodemon": "nodemon ./server/bin/www",
+    "start-server": "node ./server",
+    "start-nodemon": "nodemon ./server/",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
