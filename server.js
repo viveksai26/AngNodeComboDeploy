@@ -56,8 +56,8 @@ const app = express();
 app.use(express.static(__dirname + '/dist/user-management'));
 
 app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/user-management/index.html'));
+    res.send('Hello');
+// res.sendFile(path.join(__dirname+'/dist/user-management/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
