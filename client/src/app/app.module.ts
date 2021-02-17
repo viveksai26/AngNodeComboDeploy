@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './modules/core/errors/error.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { PublicModule } from './modules/feature/public/public.module';
+import { SecureLayoutModule } from './modules/shared/layout/secure/secure-layout/secure-layout.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,15 +19,14 @@ import { PublicModule } from './modules/feature/public/public.module';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
     CommonModule,
+    BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
-    ErrorModule,
     AppRoutingModule,
+    ErrorModule,
     PublicModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
