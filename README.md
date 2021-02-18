@@ -1,5 +1,5 @@
 # Angular & Node Combo Deploy Heroku
-https://dashboard.heroku.com/apps/user-management-rs/resources
+https://user-management-rs.herokuapp.com/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 
