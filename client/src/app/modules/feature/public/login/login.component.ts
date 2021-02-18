@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
+import { FormBuilder, Validators } from '@angular/forms';
+import { SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,14 +9,30 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginFormGroup: any;
+  hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
+    this.formGenerator()
+    this.authService.authState.subscribe((user) => {
+      console.log(user);
+    });
+  };
+  formGenerator() {
     this.loginFormGroup = this.formBuilder.group({
-      username: [],
-      password: [],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     })
+  }
+  performLogin() {
+    
+  }
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  signOut(): void {
+    this.authService.signOut();
   }
 
 }
