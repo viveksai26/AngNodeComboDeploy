@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.formGenerator();
   }
-
   formGenerator() {
     this.loginFormGroup = this.formBuilder.group({
       username: ['', Validators.required],
@@ -34,6 +33,5 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(AppConstants.AUTH_TOKEN, user.authToken);
       this.router.navigate([RoutePathConstant.ROUTE_HOME]);
     });
-    this.router.navigate([RoutePathConstant.ROUTE_HOME]);
   }
 }
