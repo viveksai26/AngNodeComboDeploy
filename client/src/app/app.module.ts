@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
+import { SecureModule } from './modules/feature/secure/secure.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     ErrorModule,
     PublicModule,
+    SecureModule,
     SharedModule,
     SocialLoginModule,
   ],
