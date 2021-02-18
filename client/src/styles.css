@@ -7,8 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     bottom: 0;
     width: 100%;
     color: white;
-    min-height: 5%;
-    line-height:1em;
+    line-height:2em;
     background-color: #343a40;
 }
 .fullwidth {
