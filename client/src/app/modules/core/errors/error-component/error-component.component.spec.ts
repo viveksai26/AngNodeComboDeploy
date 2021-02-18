@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ErrorComponentComponent} from './error-component.component';
+import { ErrorComponentComponent } from './error-component.component';
 
 describe('ErrorComponentComponent', () => {
   let component: ErrorComponentComponent;
