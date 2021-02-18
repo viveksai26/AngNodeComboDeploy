@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-center align-items-end">
+        <mat-card class="col-md-4" style="margin-top: 12%;">
+          <div class="d-flex justify-content-center">
+            <h1>Logo</h1>
+          </div>
+          <div class="row">
+            <form [formGroup]="loginFormGroup" class="col-md-12">
+              <div>
+                <mat-form-field class="fullwidth">
+                  <mat-label>
+                    Username
+                  </mat-label>
+                  <input matInput type="text" autocomplete="username" formControlName="username" />
+                </mat-form-field>
+                <mat-form-field class="fullwidth">
+                  <mat-label>
+                    Password
+                  </mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" autocomplete="password" formControlName="password" />
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="d-flex justify-content-end">
+                <a mat-flat-button (click)="performLogin()" >Forgot Password?</a>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button mat-raised-button color="primary" class="mr-2" type="submit" (click)="performLogin()">
+                  Sign up
+                </button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginFormGroup.invalid" (click)="performLogin()">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="row d-flex justify-content-center m-3">
+            Or
+          </div>
+          <div class="row d-flex justify-content-center m-3">
+            <button mat-flat-button (click)="signInWithGoogle()"> Sign in with google</button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
