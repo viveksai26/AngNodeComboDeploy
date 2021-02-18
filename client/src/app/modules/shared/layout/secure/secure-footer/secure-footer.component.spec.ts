@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SecureFooterComponent } from './secure-footer.component';
+import {SecureFooterComponent} from './secure-footer.component';
 
 describe('SecureFooterComponent', () => {
   let component: SecureFooterComponent;
