@@ -1,19 +1,19 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PublicLayoutComponent} from './public-layout.component';
+import { SecureLayoutComponent } from './secure-layout.component';
 
 describe('PublicLayoutComponent', () => {
-  let component: PublicLayoutComponent;
-  let fixture: ComponentFixture<PublicLayoutComponent>;
+  let component: SecureLayoutComponent;
+  let fixture: ComponentFixture<SecureLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PublicLayoutComponent],
+      declarations: [SecureLayoutComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PublicLayoutComponent);
+    fixture = TestBed.createComponent(SecureLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

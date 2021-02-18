@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PublicFooterComponent} from './public-footer.component';
+import { PublicFooterComponent } from './public-footer.component';
 
 describe('PublicFooterComponent', () => {
   let component: PublicFooterComponent;

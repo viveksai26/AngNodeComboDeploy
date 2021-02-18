@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PublicHeaderComponent} from './public-header.component';
+import { PublicHeaderComponent } from './public-header.component';
 
 describe('PublicHeaderComponent', () => {
   let component: PublicHeaderComponent;

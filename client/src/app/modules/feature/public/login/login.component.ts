@@ -19,16 +19,19 @@ export class LoginComponent implements OnInit {
       console.log(user);
     });
   }
+
   formGenerator() {
     this.loginFormGroup = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
+
   performLogin() {}
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
+
   signOut(): void {
     this.authService.signOut();
   }

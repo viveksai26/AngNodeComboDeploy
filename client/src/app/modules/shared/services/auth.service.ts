@@ -1,5 +1,5 @@
-import {Injectable, Injector, OnInit} from '@angular/core';
-import {Event, NavigationError, Router} from '@angular/router';
+import { Injectable, Injector, OnInit } from '@angular/core';
+import { Event, NavigationError, Router } from '@angular/router';
 
 @Injectable()
 export class AuthService implements OnInit {
