@@ -14,9 +14,11 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 import { SecureModule } from './modules/feature/secure/secure.module';
+import { SnackBarComponent } from './modules/core/services/notification/snackbar.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SnackBarComponent],
   imports: [
     BrowserModule,
     CommonModule,

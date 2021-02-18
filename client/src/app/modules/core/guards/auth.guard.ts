@@ -6,6 +6,7 @@ import { AppConstants } from '../../shared/constants/app-constants';
 import { AutheticationService } from '../../shared/services/authentication/authetication.service';
 import { RoutePathConstant } from '../../shared/constants/route-path-constants';
 import { UserService } from '../../shared/services/user/user.service';
+import { NotificationService } from '../services/notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,8 @@ export class AuthGuardService implements CanActivate {
   constructor(
     private autheticationService: AutheticationService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private notificationService: NotificationService
   ) {}
   canActivate(): Observable<boolean> {
     let idToken = localStorage.getItem(AppConstants.ID_TOKEN);
@@ -25,6 +27,7 @@ export class AuthGuardService implements CanActivate {
       }),
       map((data) => true),
       catchError((err) => {
+        this.notificationService.openSnackBar(err?.error?.error, 'dismiss')
         this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
         return of(false);
       })
