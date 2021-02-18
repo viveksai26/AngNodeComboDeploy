@@ -4,7 +4,7 @@ module.exports = {
     'es2021': true,
   },
   'extends': [
-    'google',
+    'plugin:prettier/recommended',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
@@ -15,6 +15,15 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
+    'no-undef': [
+      'error',
+      {
+        typeof: true,
+      },
+    ],
+    'one-var': ['error', 'never'],
+    'no-multi-assign': 'error',
+    'no-plusplus': 'error',
     'require-jsdoc': 0,
   },
 };

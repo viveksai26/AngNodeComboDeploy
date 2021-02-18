@@ -6,8 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./public-footer.component.css'],
 })
 export class PublicFooterComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

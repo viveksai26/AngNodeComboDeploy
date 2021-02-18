@@ -6,8 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./secure-layout.component.css'],
 })
 export class SecureLayoutComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

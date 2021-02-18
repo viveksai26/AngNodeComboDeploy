@@ -6,8 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./secure-header.component.css'],
 })
 export class SecureHeaderComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

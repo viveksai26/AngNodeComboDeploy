@@ -9,4 +9,4 @@ import {RouterModule} from '@angular/router';
   imports: [RouterModule],
   exports: [SecureLayoutComponent],
 })
-export class SecureLayoutModule { }
+export class SecureLayoutModule {}

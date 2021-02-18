@@ -1,25 +1,21 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './routes/app-routing.module';
-import {AppComponent} from './app.component';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
-import {ErrorModule} from './modules/core/errors/error.module';
-import {SharedModule} from './modules/shared/shared.module';
-import {PublicModule} from './modules/feature/public/public.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login';
-import {
-  GoogleLoginProvider,
-} from 'angularx-social-login';
-import {environment} from '../environments/environment';
+import { AppRoutingModule } from './routes/app-routing.module';
+import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorModule } from './modules/core/errors/error.module';
+import { SharedModule } from './modules/shared/shared.module';
+import { PublicModule } from './modules/feature/public/public.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -40,9 +36,7 @@ import {environment} from '../environments/environment';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-                environment.gsignIn.web.client_id,
-            ),
+            provider: new GoogleLoginProvider(environment.gsignIn.web.client_id),
           },
         ],
       } as SocialAuthServiceConfig,
@@ -50,4 +44,4 @@ import {environment} from '../environments/environment';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

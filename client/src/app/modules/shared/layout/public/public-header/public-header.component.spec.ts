@@ -9,8 +9,7 @@ describe('PublicHeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PublicHeaderComponent],
-    })
-        .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

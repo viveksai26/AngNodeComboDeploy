@@ -10,4 +10,4 @@ import {AppMaterialModule} from './styles/app-material.module';
   exports: [CommonModule, FormsModule, PublicLayoutModule, AppMaterialModule, ReactiveFormsModule],
   providers: [AuthService],
 })
-export class SharedModule { }
+export class SharedModule {}

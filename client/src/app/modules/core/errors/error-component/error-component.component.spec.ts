@@ -9,8 +9,7 @@ describe('ErrorComponentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ErrorComponentComponent],
-    })
-        .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

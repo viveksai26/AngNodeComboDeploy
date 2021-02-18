@@ -9,8 +9,7 @@ describe('SecureFooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SecureFooterComponent],
-    })
-        .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -9,15 +9,14 @@ import {SharedModule} from '../../shared/shared.module';
 import {ErrorHandler} from './error-handler/error-handler';
 
 @NgModule({
-  declarations: [
-    ErrorComponentComponent,
+  declarations: [ErrorComponentComponent],
+  imports: [CommonModule, RouterModule, ErrorRoutingModule, SharedModule],
+  providers: [
+    ErrorServiceService,
+    {
+      provide: ErrorHandler,
+      useClass: ErrorHandler,
+    },
   ],
-  imports: [
-    CommonModule, RouterModule, ErrorRoutingModule, SharedModule,
-  ],
-  providers: [ErrorServiceService, {
-    provide: ErrorHandler,
-    useClass: ErrorHandler,
-  }],
 })
-export class ErrorModule { }
+export class ErrorModule {}
