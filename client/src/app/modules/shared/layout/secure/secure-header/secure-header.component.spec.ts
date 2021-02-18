@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SecureHeaderComponent } from './secure-header.component';
+import {SecureHeaderComponent} from './secure-header.component';
 
 describe('PublicHeaderComponent', () => {
   let component: SecureHeaderComponent;
@@ -8,9 +8,9 @@ describe('PublicHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecureHeaderComponent ]
+      declarations: [SecureHeaderComponent],
     })
-    .compileComponents();
+        .compileComponents();
   });
 
   beforeEach(() => {
