@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { AppConstants } from '../../../shared/constants/app-constants';
+import { RoutePathConstant } from '../../../shared/constants/route-path-constants';
+import { AutheticationService } from '../../../shared/services/authentication/authetication.service';
+import { UserService } from '../../../shared/services/user/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,13 +16,15 @@ export class LoginComponent implements OnInit {
   loginFormGroup: any;
   hide: boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private authService: SocialAuthService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: SocialAuthService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.formGenerator();
-    this.authService.authState.subscribe((user) => {
-      console.log(user);
-    });
   }
 
   formGenerator() {
@@ -26,13 +33,12 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
-
-  performLogin() {}
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-
-  signOut(): void {
-    this.authService.signOut();
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+      this.userService.user = user;
+      localStorage.setItem(AppConstants.ID_TOKEN, user.idToken);
+      this.router.navigate([RoutePathConstant.ROUTE_HOME]);
+    });
+    this.router.navigate([RoutePathConstant.ROUTE_HOME]);
   }
 }
