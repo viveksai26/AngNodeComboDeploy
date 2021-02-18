@@ -5,12 +5,12 @@ import { ErrorComponentComponent } from '../error-component/error-component.comp
 const routes: Routes = [
   {
     path: 'error',
-    component: ErrorComponentComponent
-  }
+    component: ErrorComponentComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ErrorRoutingModule { }
+export class ErrorRoutingModule {}

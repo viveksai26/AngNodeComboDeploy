@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { PublicRoutingModule } from './public-routing.module';
 
 @NgModule({
-  imports: [
-    PublicRoutingModule
-  ]
+  imports: [PublicRoutingModule],
 })
-export class PublicModule { }
+export class PublicModule {}

@@ -10,16 +10,15 @@ import { ErrorModule } from './modules/core/errors/error.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { PublicModule } from './modules/feature/public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
-  GoogleLoginProvider
+  SocialLoginModule,
+  SocialAuthServiceConfig,
 } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -30,7 +29,7 @@ import { environment } from '../environments/environment';
     ErrorModule,
     PublicModule,
     SharedModule,
-    SocialLoginModule
+    SocialLoginModule,
   ],
   providers: [
     {
@@ -42,12 +41,12 @@ import { environment } from '../environments/environment';
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               environment.gsignIn.web.client_id
-            )
-          }
-        ]
+            ),
+          },
+        ],
       } as SocialAuthServiceConfig,
-    }
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

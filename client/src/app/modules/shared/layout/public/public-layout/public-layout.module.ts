@@ -5,8 +5,12 @@ import { PublicFooterComponent } from '../public-footer/public-footer.component'
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [PublicLayoutComponent, PublicHeaderComponent, PublicFooterComponent],
-    imports: [RouterModule],
-    exports: [PublicLayoutComponent]
+  declarations: [
+    PublicLayoutComponent,
+    PublicHeaderComponent,
+    PublicFooterComponent,
+  ],
+  imports: [RouterModule],
+  exports: [PublicLayoutComponent],
 })
-export class PublicLayoutModule { }
+export class PublicLayoutModule {}

@@ -5,8 +5,12 @@ import { SecureFooterComponent } from '../secure-footer/secure-footer.component'
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [SecureLayoutComponent, SecureHeaderComponent, SecureFooterComponent],
-    imports: [RouterModule],
-    exports: [SecureLayoutComponent]
+  declarations: [
+    SecureLayoutComponent,
+    SecureHeaderComponent,
+    SecureFooterComponent,
+  ],
+  imports: [RouterModule],
+  exports: [SecureLayoutComponent],
 })
-export class SecureLayoutModule { }
+export class SecureLayoutModule {}
