@@ -5,9 +5,28 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
-  imports: [MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatIconModule, MatButtonToggleModule],
-  exports: [MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatIconModule, MatButtonToggleModule],
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatMenuModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatMenuModule
+  ],
 })
 export class AppMaterialModule {}
