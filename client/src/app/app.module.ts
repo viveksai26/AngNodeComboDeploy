@@ -10,10 +10,7 @@ import { ErrorModule } from './modules/core/errors/error.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { PublicModule } from './modules/feature/public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 
@@ -39,9 +36,7 @@ import { environment } from '../environments/environment';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              environment.gsignIn.web.client_id
-            ),
+            provider: new GoogleLoginProvider(environment.gsignIn.web.client_id),
           },
         ],
       } as SocialAuthServiceConfig,

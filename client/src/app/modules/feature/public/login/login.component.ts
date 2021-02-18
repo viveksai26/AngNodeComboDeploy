@@ -11,10 +11,7 @@ export class LoginComponent implements OnInit {
   loginFormGroup: any;
   hide: boolean = true;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: SocialAuthService
-  ) {}
+  constructor(private formBuilder: FormBuilder, private authService: SocialAuthService) {}
 
   ngOnInit(): void {
     this.formGenerator();
