@@ -8,12 +8,15 @@ import { UserService } from 'client/src/app/modules/shared/services/user/user.se
 })
 export class UserProfileComponent implements OnInit {
   userData: any;
+  gUserData: any;
+  fbUserData: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.userData = this.userService.user;
-    console.log(this.userData.response);
+    this.gUserData = this.userService.gUser;
+    this.fbUserData = this.userService.fbUser;
+    console.log(this.gUserData, this.fbUserData);
   }
-
 }

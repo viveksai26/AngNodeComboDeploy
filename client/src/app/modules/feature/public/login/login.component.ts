@@ -35,15 +35,14 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       localStorage.setItem(AppConstants.G_ID_TOKEN, user.idToken);
       localStorage.setItem(AppConstants.G_AUTH_TOKEN, user.authToken);
-      this.router.navigate([RoutePathConstant.ROUTE_HOME]);
+      this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
     });
   }
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user) => {
-      this.userService.user = user;
       localStorage.setItem(AppConstants.FB_ID_TOKEN, user.idToken);
       localStorage.setItem(AppConstants.FB_AUTH_TOKEN, user.authToken);
-      this.router.navigate([RoutePathConstant.ROUTE_HOME]);
+      this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
     });
   }
 }

@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   user: any;
+  gUser: any;
+  fbUser: any;
   constructor() {}
 }
