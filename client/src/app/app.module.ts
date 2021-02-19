@@ -11,7 +11,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { PublicModule } from './modules/feature/public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 import { SecureModule } from './modules/feature/secure/secure.module';
 import { SnackBarComponent } from './modules/core/services/notification/snackbar.component';
@@ -42,6 +42,10 @@ import { MatDialogModule } from '@angular/material/dialog';
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(environment.gsignIn.web.client_id),
           },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(environment.fb.appId),
+          }
         ],
       } as SocialAuthServiceConfig,
     },

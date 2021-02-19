@@ -6,8 +6,11 @@ import { AppConstants } from '../constants/app-constants';
 })
 export class genericUtils {
   localStorageRemover() {
-    localStorage.removeItem(AppConstants.ACCESS_TOKEN);
-    localStorage.removeItem(AppConstants.ID_TOKEN);
-    localStorage.removeItem(AppConstants.AUTH_TOKEN);
-  }
+    localStorage.removeItem(AppConstants.FB_ACCESS_TOKEN);
+    localStorage.removeItem(AppConstants.FB_AUTH_TOKEN);
+    localStorage.removeItem(AppConstants.FB_ID_TOKEN);
+    localStorage.removeItem(AppConstants.G_ACCESS_TOKEN);
+    localStorage.removeItem(AppConstants.G_AUTH_TOKEN);
+    localStorage.removeItem(AppConstants.G_ID_TOKEN);
+}
 }

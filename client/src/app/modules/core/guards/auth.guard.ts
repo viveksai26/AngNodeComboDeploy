@@ -19,18 +19,21 @@ export class AuthGuardService implements CanActivate {
     private notificationService: NotificationService
   ) {}
   canActivate(): Observable<boolean> {
-    let idToken = localStorage.getItem(AppConstants.ID_TOKEN);
-    return this.autheticationService.verifyToken(idToken).pipe(
-      tap((data) => {
-        console.log(data);
-        this.userService.user = data;
-      }),
-      map((data) => true),
-      catchError((err) => {
-        this.notificationService.openSnackBar(err?.error?.error, 'dismiss')
-        this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
-        return of(false);
-      })
-    );
+    let idToken = localStorage.getItem(AppConstants.G_ID_TOKEN);
+    if (idToken) {
+      return this.autheticationService.verifyToken(idToken).pipe(
+        tap((data) => {
+          console.log(data);
+          this.userService.user = data;
+        }),
+        map((data) => true),
+        catchError((err) => {
+          this.notificationService.openSnackBar(err?.error?.error, 'dismiss')
+          this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
+          return of(false);
+        })
+      );
+    }
+    return of(true);
   }
 }

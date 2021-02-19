@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { AppConstants } from '../../../shared/constants/app-constants';
 import { RoutePathConstant } from '../../../shared/constants/route-path-constants';
 import { AutheticationService } from '../../../shared/services/authentication/authetication.service';
@@ -15,8 +15,12 @@ import { UserService } from '../../../shared/services/user/user.service';
 export class LoginComponent implements OnInit {
   loginFormGroup: any;
   hide: boolean = true;
-
-  constructor(private formBuilder: FormBuilder, private authService: SocialAuthService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: SocialAuthService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.formGenerator();
@@ -29,8 +33,16 @@ export class LoginComponent implements OnInit {
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
-      localStorage.setItem(AppConstants.ID_TOKEN, user.idToken);
-      localStorage.setItem(AppConstants.AUTH_TOKEN, user.authToken);
+      localStorage.setItem(AppConstants.G_ID_TOKEN, user.idToken);
+      localStorage.setItem(AppConstants.G_AUTH_TOKEN, user.authToken);
+      this.router.navigate([RoutePathConstant.ROUTE_HOME]);
+    });
+  }
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user) => {
+      this.userService.user = user;
+      localStorage.setItem(AppConstants.FB_ID_TOKEN, user.idToken);
+      localStorage.setItem(AppConstants.FB_AUTH_TOKEN, user.authToken);
       this.router.navigate([RoutePathConstant.ROUTE_HOME]);
     });
   }

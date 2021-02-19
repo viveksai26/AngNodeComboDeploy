@@ -13,6 +13,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.userService.user;
+    console.log(this.userData.response);
   }
 
 }
