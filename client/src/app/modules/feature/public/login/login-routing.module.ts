@@ -9,12 +9,12 @@ const routes: Routes = [
     path: '',
     resolve: [PublicRouteResolverService],
     component: PublicLayoutComponent,
-    children: [{ path: '', component: LoginComponent }],
-  },
+    children: [{ path: '', component: LoginComponent }]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class LoginRoutingModule {}

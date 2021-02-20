@@ -9,12 +9,12 @@ const routes: Routes = [
     path: '',
     component: SecureLayoutComponent,
     canActivate: [AuthGuardService],
-    children: [{ path: '', component: HomeComponent }],
-  },
+    children: [{ path: '', component: HomeComponent }]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class HomeRoutingModule {}

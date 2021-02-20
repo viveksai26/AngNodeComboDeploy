@@ -4,15 +4,10 @@ import { CommonService } from 'client/src/app/modules/shared/services/common/com
 @Component({
   selector: 'app-user-layout',
   templateUrl: './user-layout.component.html',
-  styleUrls: ['./user-layout.component.css'],
+  styleUrls: ['./user-layout.component.css']
 })
 export class UserLayoutComponent implements OnInit, OnDestroy {
   constructor(private commonService: CommonService) {}
-
-  ngOnInit(): void {
-    this.commonService.isMenuVisible.next(true);
-  }
-  ngOnDestroy(): void {
-    this.commonService.isMenuVisible.next(false);
-  }
+  ngOnInit(): void {}
+  ngOnDestroy(): void {}
 }

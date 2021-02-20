@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { SnackBarComponent } from './notification/snackbar.component';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class NotificationService {
   isMenuVisible: any = new BehaviorSubject(false);
@@ -12,10 +12,10 @@ export class NotificationService {
   constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
   openSnackBar(message, action) {
     this.snackBarRef = this.snackBar.openFromComponent(SnackBarComponent, {
-        duration: 5000,
+      duration: 5000,
       data: { message, action },
       verticalPosition: 'top',
-      horizontalPosition: 'center',
-    })
+      horizontalPosition: 'center'
+    });
   }
 }

@@ -8,7 +8,7 @@ describe('PublicHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SecureHeaderComponent],
+      declarations: [SecureHeaderComponent]
     }).compileComponents();
   });
 

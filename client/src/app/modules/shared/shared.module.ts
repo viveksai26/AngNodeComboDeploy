@@ -7,6 +7,6 @@ import { AppMaterialModule } from './styles/app-material.module';
 
 @NgModule({
   imports: [CommonModule, FormsModule, PublicLayoutModule, SecureLayoutModule, AppMaterialModule, ReactiveFormsModule],
-  exports: [CommonModule, FormsModule, PublicLayoutModule, SecureLayoutModule, AppMaterialModule, ReactiveFormsModule],
+  exports: [CommonModule, FormsModule, PublicLayoutModule, SecureLayoutModule, AppMaterialModule, ReactiveFormsModule]
 })
 export class SharedModule {}

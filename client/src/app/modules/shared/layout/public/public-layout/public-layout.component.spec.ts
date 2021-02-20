@@ -8,7 +8,7 @@ describe('PublicLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PublicLayoutComponent],
+      declarations: [PublicLayoutComponent]
     }).compileComponents();
   });
 

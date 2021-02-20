@@ -8,7 +8,7 @@ import { NotificationService } from '../notification.service';
 @Component({
   selector: 'snack-bar-overview-example',
   templateUrl: 'snackbar.component.html',
-  styleUrls: ['snackbar.component.css'],
+  styleUrls: ['snackbar.component.css']
 })
 export class SnackBarComponent {
   constructor(private snackRef: MatSnackBarRef<NotificationService>, @Inject(MAT_SNACK_BAR_DATA) public data: any) {}

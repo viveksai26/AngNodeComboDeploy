@@ -13,14 +13,14 @@ const routes: Routes = [
         path: '',
         component: UserLayoutComponent,
         canActivate: [AuthGuardService],
-        children: [{ path: 'profile', component: UserProfileComponent }],
+        children: [{ path: 'profile', component: UserProfileComponent }]
       }
     ]
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class UserRoutingModule {}

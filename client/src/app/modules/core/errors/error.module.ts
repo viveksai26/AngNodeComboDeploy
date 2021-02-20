@@ -15,8 +15,8 @@ import { ErrorHandler } from './error-handler/error-handler';
     ErrorServiceService,
     {
       provide: ErrorHandler,
-      useClass: ErrorHandler,
-    },
-  ],
+      useClass: ErrorHandler
+    }
+  ]
 })
 export class ErrorModule {}

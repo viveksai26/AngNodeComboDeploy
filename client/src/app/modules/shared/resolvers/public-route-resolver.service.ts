@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { genericUtils } from '../utils/generic-utils';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PublicRouteResolverService implements Resolve<any> {
   constructor(private genericUtils: genericUtils) {}

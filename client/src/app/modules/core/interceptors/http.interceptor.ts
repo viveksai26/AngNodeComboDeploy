@@ -9,8 +9,8 @@ export class HttpInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('access-token');
     request = request.clone({
       setHeaders: {
-        Authorization: token,
-      },
+        Authorization: token
+      }
     });
     return next.handle(request);
   }

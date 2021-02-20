@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [PublicLayoutComponent, PublicHeaderComponent, PublicFooterComponent],
   imports: [RouterModule],
-  exports: [PublicLayoutComponent],
+  exports: [PublicLayoutComponent]
 })
 export class PublicLayoutModule {}

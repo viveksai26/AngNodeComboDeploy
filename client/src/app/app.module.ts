@@ -30,7 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PublicModule,
     SecureModule,
     SharedModule,
-    SocialLoginModule,
+    SocialLoginModule
   ],
   providers: [
     {
@@ -40,16 +40,16 @@ import { MatDialogModule } from '@angular/material/dialog';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(environment.gsignIn.web.client_id),
+            provider: new GoogleLoginProvider(environment.gsignIn.web.client_id)
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider(environment.fb.appId),
+            provider: new FacebookLoginProvider(environment.fb.appId)
           }
-        ],
-      } as SocialAuthServiceConfig,
-    },
+        ]
+      } as SocialAuthServiceConfig
+    }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

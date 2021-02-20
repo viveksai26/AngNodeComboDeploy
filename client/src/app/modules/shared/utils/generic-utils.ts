@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppConstants } from '../constants/app-constants';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class genericUtils {
   localStorageRemover() {
@@ -12,5 +12,5 @@ export class genericUtils {
     localStorage.removeItem(AppConstants.G_ACCESS_TOKEN);
     localStorage.removeItem(AppConstants.G_AUTH_TOKEN);
     localStorage.removeItem(AppConstants.G_ID_TOKEN);
-}
+  }
 }

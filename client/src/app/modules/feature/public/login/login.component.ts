@@ -10,7 +10,7 @@ import { UserService } from '../../../shared/services/user/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginFormGroup: any;
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   formGenerator() {
     this.loginFormGroup = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
   signInWithGoogle(): void {
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user) => {
+      this.userService.fbUser = user;
       localStorage.setItem(AppConstants.FB_ID_TOKEN, user.idToken);
       localStorage.setItem(AppConstants.FB_AUTH_TOKEN, user.authToken);
       this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);

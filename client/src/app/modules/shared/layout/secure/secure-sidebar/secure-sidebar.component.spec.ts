@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserLayoutComponent } from './user-layout.component';
+import { SecureSidebarComponent } from './secure-sidebar.component';
 
-describe('UserComponent', () => {
-  let component: UserLayoutComponent;
-  let fixture: ComponentFixture<UserLayoutComponent>;
+describe('PublicLayoutComponent', () => {
+  let component: SecureSidebarComponent;
+  let fixture: ComponentFixture<SecureSidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserLayoutComponent]
+      declarations: [SecureSidebarComponent]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserComponent);
+    fixture = TestBed.createComponent(SecureSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

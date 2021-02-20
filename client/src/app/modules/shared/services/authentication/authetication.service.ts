@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiUrls } from '../../constants/api-urls';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AutheticationService {
   declare gapi: any;

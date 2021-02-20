@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button mat-icon-button *ngIf="isMenuVisible">
+      <button mat-icon-button (click)="sidebarToggle()">
         <mat-icon style="color: white;">
           menu
         </mat-icon>
