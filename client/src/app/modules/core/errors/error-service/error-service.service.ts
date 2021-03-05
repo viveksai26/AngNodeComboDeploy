@@ -6,7 +6,7 @@ export class ErrorServiceService {
   constructor(private injector: Injector, private router: Router) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationError) {
-        this.router.navigate(['/error']);
+        this.router.navigate(['/error'], { queryParams: event.error });
       }
     });
   }

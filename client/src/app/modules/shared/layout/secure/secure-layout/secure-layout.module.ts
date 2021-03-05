@@ -18,36 +18,6 @@ import { RoutePathConstant } from '../../../constants/route-path-constants';
   imports: [RouterModule, AppMaterialModule, CommonModule, FormsModule, ReactiveFormsModule],
   exports: [SecureLayoutComponent]
 })
-export class SecureLayoutModule implements OnInit {
-  constructor(
-    private autheticationService: AutheticationService,
-    private userService: UserService,
-    private notificationService: NotificationService,
-    private router: Router
-  ) {}
-  ngOnInit() {
-    let gIdToken = localStorage.getItem(AppConstants.G_ID_TOKEN);
-    let fbIdToken = localStorage.getItem(AppConstants.FB_AUTH_TOKEN);
-    if (gIdToken) {
-      return this.autheticationService.verifyGToken(gIdToken).subscribe(
-        (data) => {
-          this.userService.gUser = data;
-        },
-        (err) => {
-          this.notificationService.openSnackBar(err?.error?.error, 'dismiss');
-          this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
-        }
-      );
-    } else if (fbIdToken) {
-      return this.autheticationService.verifyFbToken(fbIdToken).subscribe(
-        (data) => {
-          this.userService.fbUser = data;
-        },
-        (err) => {
-          this.notificationService.openSnackBar(err?.error?.error, 'dismiss');
-          this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
-        }
-      );
-    }
-  }
+export class SecureLayoutModule {
+  constructor() {}
 }

@@ -12,9 +12,10 @@ export class ErrorHandler implements ErrorHandler {
     const ngZone = this.injector.get(NgZone);
     if (error instanceof HttpErrorResponse) {
       console.log('error');
+      return error;
     }
     ngZone.run(() => {
-      router.navigate(['/error']);
+      router.navigate(['/error'], { queryParams: error });
     });
   }
 }

@@ -20,7 +20,6 @@ export class SecureHeaderComponent implements OnInit {
   }
   signOut(): void {
     this.authService.signOut();
-    this.genericUtils.localStorageRemover();
     this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
   }
   goToProfile() {

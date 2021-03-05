@@ -6,9 +6,11 @@ import { genericUtils } from '../utils/generic-utils';
   providedIn: 'root'
 })
 export class PublicRouteResolverService implements Resolve<any> {
-  constructor(private genericUtils: genericUtils) {}
+  constructor(private genericUtils: genericUtils) {
+    console.log('In public route resolver');
+  }
   resolve(): Observable<any> | any {
-    this.genericUtils.localStorageRemover;
+    this.genericUtils.localStorageRemover();
     return of([]);
   }
 }
