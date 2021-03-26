@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'client/src/app/modules/shared/services/user/user.service';
-
+import { AppConstants } from 'client/src/app/modules/shared/constants/app-constants';
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -11,11 +11,12 @@ export class UserProfileComponent implements OnInit {
   gUserData: any;
   fbUserData: any;
 
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.gUserData = this.userService.gUser;
-    this.fbUserData = this.userService.fbUser;
-    console.log(this.gUserData, this.fbUserData);
+    const userToken = localStorage.getItem(AppConstants.G_ID_TOKEN);
+    if (userToken) {
+      this.gUserData = jwt_decode(userToken);
+    }
   }
 }

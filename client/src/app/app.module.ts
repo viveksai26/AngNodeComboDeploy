@@ -15,7 +15,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
 import { environment } from '../environments/environment';
 import { SecureModule } from './modules/feature/secure/secure.module';
 import { SnackBarComponent } from './modules/core/services/notification/snackbar.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { BlockUIModule } from 'ng-block-ui';
+import { BlockTemplateCmp } from './block-template.component';
 
 @NgModule({
   declarations: [AppComponent, SnackBarComponent],
@@ -30,7 +31,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     PublicModule,
     SecureModule,
     SharedModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BlockUIModule.forRoot({
+      // template: BlockTemplateCmp,
+      message: 'Loading.................'
+    })
   ],
   providers: [
     {
@@ -46,6 +51,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       } as SocialAuthServiceConfig
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BlockTemplateCmp]
 })
 export class AppModule {}

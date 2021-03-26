@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
 import { EventEmitter } from '@angular/core';
 import { RoutePathConstant } from '../../../constants/route-path-constants';
-import { CommonService } from '../../../services/common/common.service';
-import { genericUtils } from '../../../utils/generic-utils';
+import { AppConstants } from '../../../constants/app-constants';
+import jwt_decode from 'jwt-decode';
+import { AutheticationService } from '../../../services/authentication/authetication.service';
+
 @Component({
   selector: 'app-secure-header',
   templateUrl: './secure-header.component.html',
@@ -12,14 +14,23 @@ import { genericUtils } from '../../../utils/generic-utils';
 })
 export class SecureHeaderComponent implements OnInit {
   @Output() sideBarTrigger = new EventEmitter();
-  constructor(private authService: SocialAuthService, private genericUtils: genericUtils, private router: Router) {}
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    private AutheticationService: AutheticationService
+  ) {}
   isMenuVisible: boolean = false;
+  isLoggedIn: boolean;
   subscriptionsArray: any = [];
   ngOnInit(): void {
-    this.sideBarTrigger.emit(true);
+    // this.sideBarTrigger.emit(true);
+    this.isLoggedIn = this.AutheticationService.isLoggedIn;
   }
   signOut(): void {
     this.authService.signOut();
+    this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
+  }
+  login() {
     this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
   }
   goToProfile() {

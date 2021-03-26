@@ -32,3 +32,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .fullheight {
     height: 100% !important;
 }
+.block-ui-template {
+    color: aliceblue;
+    background-image: url(assets/loader2.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 100%;
+}

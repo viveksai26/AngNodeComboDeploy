@@ -6,23 +6,14 @@
                     <div class="col-md-12">
                         <div class="m-3">
                             <img *ngIf="gUserData?.picture" [src]="gUserData?.picture">
-                            <img *ngIf="fbUserData?.response?.picture?.data?.url" [src]="fbUserData?.response?.picture?.data?.url">
                         </div>
                         <div *ngIf="gUserData?.name" class="m-2">
                             <strong>Name: </strong>
                             {{gUserData?.name}}
                         </div>
-                        <div *ngIf="fbUserData?.name" class="m-2">
-                            <strong>Name: </strong>
-                            {{fbUserData?.name}}
-                        </div>
                         <div *ngIf="gUserData?.email" class="m-2">
                             <strong>Email: </strong>
                             {{gUserData?.email}}
-                        </div>
-                        <div *ngIf="fbUserData?.email" class="m-2">
-                            <strong>Email: </strong>
-                            {{fbUserData?.email}}
                         </div>
                     </div>
                 </div>

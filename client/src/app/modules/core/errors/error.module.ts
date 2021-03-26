@@ -12,11 +12,11 @@ import { ErrorHandler as myErrorHandler } from './error-handler/error-handler';
   declarations: [ErrorComponentComponent],
   imports: [CommonModule, RouterModule, ErrorRoutingModule, SharedModule],
   providers: [
-    ErrorServiceService,
-    {
-      provide: ErrorHandler,
-      useClass: myErrorHandler
-    }
+    ErrorServiceService
+    // {
+    //   provide: ErrorHandler,
+    //   useClass: myErrorHandler
+    // }
   ]
 })
 export class ErrorModule {}

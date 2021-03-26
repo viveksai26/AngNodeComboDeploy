@@ -2,24 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { AppConstants } from '../../../shared/constants/app-constants';
+import { GoogleLoginProvider } from 'angularx-social-login';
 import { RoutePathConstant } from '../../../shared/constants/route-path-constants';
-import { AutheticationService } from '../../../shared/services/authentication/authetication.service';
-import { UserService } from '../../../shared/services/user/user.service';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { NotificationService } from '../../../core/services/notification.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @BlockUI() blockUI: NgBlockUI;
   loginFormGroup: any;
   hide: boolean = true;
   constructor(
     private formBuilder: FormBuilder,
     private authService: SocialAuthService,
-    private router: Router,
-    private userService: UserService
+    private NotificationService: NotificationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -32,18 +32,28 @@ export class LoginComponent implements OnInit {
     });
   }
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
-      localStorage.setItem(AppConstants.G_ID_TOKEN, user.idToken);
-      localStorage.setItem(AppConstants.G_AUTH_TOKEN, user.authToken);
-      this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
-    });
+    this.startBlocking();
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      (user) => {
+        this.stopBlocking();
+        this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
+      },
+      (error) => {
+        console.log(error);
+        this.NotificationService.openSnackBar(error?.error, 'dismiss');
+        this.stopBlocking();
+      }
+    );
   }
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user) => {
-      this.userService.fbUser = user;
-      localStorage.setItem(AppConstants.FB_ID_TOKEN, user.idToken);
-      localStorage.setItem(AppConstants.FB_AUTH_TOKEN, user.authToken);
-      this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
-    });
+  goToHome() {
+    this.router.navigate([RoutePathConstant.ROUTE_HOME]);
+  }
+  startBlocking() {
+    this.blockUI.start(); // start blocking
+  }
+  stopBlocking() {
+    setTimeout(() => {
+      this.blockUI.stop(); // Stop blocking
+    }, 2000);
   }
 }

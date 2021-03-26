@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../shared/services/user/user.service';
+import { SocialAuthService } from 'angularx-social-login';
+import { AppConstants } from '../../../shared/constants/app-constants';
+import { AutheticationService } from '../../../shared/services/authentication/authetication.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,7 @@ import { UserService } from '../../../shared/services/user/user.service';
 export class HomeComponent implements OnInit {
   userData: any;
 
-  constructor(private userService: UserService) {}
+  constructor(private authService: SocialAuthService, private AutheticationService: AutheticationService) {}
 
-  ngOnInit(): void {
-    this.userData = this.userService.user;
-  }
+  ngOnInit(): void {}
 }
