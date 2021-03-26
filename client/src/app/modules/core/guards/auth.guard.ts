@@ -21,23 +21,10 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(): Observable<boolean> {
     let gIdToken = localStorage.getItem(AppConstants.G_ID_TOKEN);
-    let fbIdToken = localStorage.getItem(AppConstants.FB_AUTH_TOKEN);
     if (gIdToken) {
       return this.autheticationService.verifyGToken(gIdToken).pipe(
         tap((data) => {
           this.userService.gUser = data;
-        }),
-        map((data) => true),
-        catchError((err) => {
-          this.notificationService.openSnackBar(err?.error?.error, 'dismiss')
-          this.router.navigate([RoutePathConstant.ROUTE_LOGIN]);
-          return of(false);
-        })
-      );
-    } else if (fbIdToken) {
-      return this.autheticationService.verifyFbToken(fbIdToken).pipe(
-        tap((data) => {
-          this.userService.fbUser = data;
         }),
         map((data) => true),
         catchError((err) => {
@@ -47,6 +34,6 @@ export class AuthGuardService implements CanActivate {
         })
       );
     }
-    return of(true);
+    return of(false);
   }
 }
