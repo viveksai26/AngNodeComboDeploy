@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuardService } from '../../../core/guards/Auth.guard';
 import { AutoLoginService } from '../../../core/guards/AutoLoginService';
+import { AuthGuardService } from '../../../core/guards/Auth.guard';
 import { SecureLayoutComponent } from '../../../shared/layout/secure/secure-layout/secure-layout.component';
-import { CommonRouteResolverService } from '../../../shared/resolvers/common-route-resolver.service';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
