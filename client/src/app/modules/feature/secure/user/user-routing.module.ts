@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AutoLoginService } from '../../../core/guards/auto-login.service';
-import { AuthGuardService } from '../../../core/guards/auth.guard';
+// import { AuthGuardService } from '../../../core/guards/auth.guard';
 import { SecureLayoutComponent } from '../../../shared/layout/secure/secure-layout/secure-layout.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuardService],
     component: SecureLayoutComponent,
     children: [
       {
