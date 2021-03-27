@@ -17,6 +17,7 @@ import { SecureModule } from './modules/feature/secure/secure.module';
 import { SnackBarComponent } from './modules/core/services/notification/snackbar.component';
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockTemplateCmp } from './block-template.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent, SnackBarComponent],
@@ -35,7 +36,8 @@ import { BlockTemplateCmp } from './block-template.component';
     BlockUIModule.forRoot({
       // template: BlockTemplateCmp,
       message: 'Loading.................'
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
