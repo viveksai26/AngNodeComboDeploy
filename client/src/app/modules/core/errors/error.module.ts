@@ -6,17 +6,17 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ErrorRoutingModule } from './error-routing/error-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { ErrorHandler as myErrorHandler } from './error-handler/error-handler';
+import { CustomErrorHandler } from './error-handler/error-handler';
 
 @NgModule({
   declarations: [ErrorComponentComponent],
   imports: [CommonModule, RouterModule, ErrorRoutingModule, SharedModule],
   providers: [
-    ErrorServiceService
-    // {
-    //   provide: ErrorHandler,
-    //   useClass: myErrorHandler
-    // }
+    ErrorServiceService,
+    {
+      provide: ErrorHandler,
+      useClass: CustomErrorHandler
+    }
   ]
 })
 export class ErrorModule {}
