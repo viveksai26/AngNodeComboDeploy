@@ -8,7 +8,7 @@ const vapidkeys = {
 };
 console.log(vapidkeys);
 webpush.setVapidDetails('mailto:viveksai26@gmail.com', vapidkeys.publicKey, vapidkeys.privateKey);
-const subscriptions = [];
+let subscriptions = [];
 /* GET home page. */
 router.get('/newsletter', function (req, res, next) {
   var message = req.query['message'];
@@ -33,8 +33,21 @@ router.get('/newsletter', function (req, res, next) {
     }
   };
 
-  Promise.all(subscriptions.map((sub) => webpush.sendNotification(sub, JSON.stringify(notificationPayload))))
-    .then(() => res.status(200).json({ message: 'Newsletter sent successfully.' }))
+  Promise.all(
+    subscriptions.map((sub) =>
+      webpush.sendNotification(sub, JSON.stringify(notificationPayload)).catch((error) => {
+        console.log(error);
+        const index = subscriptions.indexOf(sub);
+        if (index > -1) {
+          subscriptions.splice(index, 1);
+        }
+      })
+    )
+  )
+    .then((data) => {
+      console.log('webPush success data', data);
+      res.status(200).json({ message: 'Newsletter sent successfully.' });
+    })
     .catch((err) => {
       console.error('Error sending notification, reason: ', err);
       res.sendStatus(500);
@@ -42,6 +55,10 @@ router.get('/newsletter', function (req, res, next) {
 });
 router.get('/subscribers', function (req, res, next) {
   res.status(200).json(subscriptions);
+});
+router.get('/clearSubscriptions', function (req, res, next) {
+  subscriptions = [];
+  res.status(200).json('subscriptions cleared');
 });
 router.post('/subscribe', function (req, res, next) {
   const sub = req.body;
