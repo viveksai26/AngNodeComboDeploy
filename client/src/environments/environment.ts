@@ -14,9 +14,7 @@ export const environment = {
       client_secret: 'QsbVaVMIhcAXdi5Haf-jODx4'
     }
   },
-  fb: {
-    appId: '2784324365116432'
-  }
+  baseURL: 'http://localhost:8080'
 };
 
 /*

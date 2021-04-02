@@ -6,6 +6,7 @@
     "start": "node server.js",
     "start-nodemon": "nodemon server.js",
     "build": "ng build --prod --base-href=/UM/ --deploy-url=/UM/",
+    "build-dev": "ng build --base-href=/UM/ --deploy-url=/UM/",
     "test": "ng test",
     "lint": "eslint --ext .ts client/src --fix",
     "format": "prettier --write \"client/src/**/*.ts\"",
