@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "user-management"
+  "defaultProject": "user-management",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -6,7 +6,6 @@ var app = express();
  * Routes
  */
 var indexRouter = require('./server/routes/index');
-var usersRouter = require('./server/routes/users');
 
 var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
@@ -20,7 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', indexRouter);
-app.use('/api/users', usersRouter);
 // catch 404 and forward to error handler
 app.use('/api', function (req, res, next) {
   next(createError(404));
