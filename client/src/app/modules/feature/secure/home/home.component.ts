@@ -14,4 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private authService: SocialAuthService, private AutheticationService: AutheticationService) {}
 
   ngOnInit(): void {}
+  goToFD() {
+    window.open('https://viveksai26.github.io/FD/', '_blank');
+  }
 }
