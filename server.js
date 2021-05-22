@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 //Install express server
 const express = require('express');
 const path = require('path');
@@ -38,6 +39,9 @@ app.use('/api', function (err, req, res, next) {
 app.use('/common-client', express.static(__dirname + '/dist/common-client'));
 app.get('/common-client/*', function (req, res) {
   res.sendFile(path.join(__dirname+'/dist/common-client/index.html'));
+});
+app.use('/', function (req, res) {
+  res.redirect('/common-client');
 });
 
 // Start the app by listening on the default Heroku port
