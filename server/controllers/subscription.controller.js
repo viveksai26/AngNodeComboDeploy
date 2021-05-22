@@ -1,9 +1,13 @@
-var express = require('express');
 const webpush = require('web-push');
-
+let configuration = {};
+try {
+  configuration = require('../../config.json');
+} catch {
+  console.log(configuration);
+}
 const vapidkeys = {
-  publicKey: process.env.VPAID_PUBLIC,
-  privateKey: process.env.VPAID_PRIVATE
+  publicKey: process.env.VPAID_PUBLIC || configuration?.VPAID_PUBLIC,
+  privateKey: process.env.VPAID_PRIVATE || configuration?.VPAID_PRIVATE
 };
 webpush.setVapidDetails('mailto:viveksai26@gmail.com', vapidkeys.publicKey, vapidkeys.privateKey);
 let subscriptions = [];
