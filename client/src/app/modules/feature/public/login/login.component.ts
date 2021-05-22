@@ -6,6 +6,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 import { RoutePathConstant } from '../../../shared/constants/route-path-constants';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { NotificationService } from '../../../core/services/notification.service';
+import { AppConstants } from '../../../shared/constants/app-constants';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       (user) => {
         this.stopBlocking();
+        localStorage.setItem(AppConstants.G_ID_TOKEN, user.idToken);
+        localStorage.setItem(AppConstants.G_AUTH_TOKEN, user.authToken);
         this.router.navigate([RoutePathConstant.ROUTE_PROFILE]);
       },
       (error) => {
