@@ -17,4 +17,7 @@ export class HomeComponent implements OnInit {
   goToFD() {
     window.open('https://viveksai26.github.io/FD/', '_blank');
   }
+  goToPhotoFrame() {
+    window.open('https://viveksai26.github.io/photo-frame/dashboard', '_blank');
+  }
 }
