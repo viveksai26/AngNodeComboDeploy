@@ -6,11 +6,11 @@ import { of } from 'rxjs';
 export class ErrorServiceService {
   constructor(private injector: Injector, private router: Router) {
     this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationError) {
-        this.log(event.error).subscribe((errorWithContext) => {
-          this.router.navigate(['/error'], { queryParams: errorWithContext });
-        });
-      }
+      // if (event instanceof NavigationError) {
+      //   this.log(event.error).subscribe((errorWithContext) => {
+      //     this.router.navigate(['/error'], { queryParams: errorWithContext });
+      //   });
+      // }
     });
   }
   log(error) {
