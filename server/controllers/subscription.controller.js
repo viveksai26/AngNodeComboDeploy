@@ -2,8 +2,8 @@ var express = require('express');
 const webpush = require('web-push');
 
 const vapidkeys = {
-  publicKey: 'BP6E5pOfRrr7dqhpgV8auSJ3pwu6qDIUXm4txhoz5vck8KPqJB0drawCDBY5F4Z0Zipp6vf85iN3J62dG_6XiuY',
-  privateKey: 'XnjOAdhMFmumE0uLznXiwogC-bfsGCVWAWP_Eu3luyc'
+  publicKey: process.env.VPAID_PUBLIC,
+  privateKey: process.env.VPAID_PRIVATE
 };
 webpush.setVapidDetails('mailto:viveksai26@gmail.com', vapidkeys.publicKey, vapidkeys.privateKey);
 let subscriptions = [];
