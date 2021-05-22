@@ -35,8 +35,8 @@ app.use('/api', function (err, req, res, next) {
   res.render('error');
 });
 // Serve only the static files form the dist directory
-app.use('/UM', express.static(__dirname + '/dist/common-client'));
-app.get('/UM/*', function (req, res) {
+app.use('/client', express.static(__dirname + '/dist/common-client'));
+app.get('/client/*', function (req, res) {
   res.sendFile(path.join(__dirname+'/dist/common-client/index.html'));
 });
 

@@ -6,13 +6,13 @@
     "start": "node server.js",
     "start-nodemon": "nodemon server.js",
     "build": "ng build --prod --base-href=/common-client/ --deploy-url=/common-client/",
-    "build-dev": "ng build --base-href=/UM/ --deploy-url=/UM/",
+    "build-dev": "ng build --base-href=/common-client/ --deploy-url=/common-client/",
     "test": "ng test",
     "lint": "eslint --ext .ts client/src --fix",
     "format": "prettier --write \"client/src/**/*.ts\"",
     "compodoc": "npx compodoc -p src/tsconfig.app.json",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod --base-href=/UM/ --deploy-url=/UM/"
+    "heroku-postbuild": "ng build --prod --base-href=/common-client/ --deploy-url=/common-client/"
   },
   "lint-staged": {
     "*.ts": [
