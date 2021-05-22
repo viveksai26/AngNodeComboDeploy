@@ -1,6 +1,6 @@
 {
-  "name": "user-management",
-  "short_name": "user-management",
+  "name": "common-client",
+  "short_name": "common-client",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

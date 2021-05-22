@@ -35,9 +35,9 @@ app.use('/api', function (err, req, res, next) {
   res.render('error');
 });
 // Serve only the static files form the dist directory
-app.use('/UM', express.static(__dirname + '/dist/user-management'));
+app.use('/UM', express.static(__dirname + '/dist/common-client'));
 app.get('/UM/*', function (req, res) {
-  res.sendFile(path.join(__dirname+'/dist/user-management/index.html'));
+  res.sendFile(path.join(__dirname+'/dist/common-client/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
@@ -50,11 +50,11 @@ app.listen(process.env.PORT || 8080);
 // const app = express();
 
 // // Serve only the static files form the dist directory
-// app.use(express.static(__dirname + '/dist/user-management'));
+// app.use(express.static(__dirname + '/dist/common-client'));
 
 // app.get('/*', function(req,res) {
 //     res.send('Hello');
-// // res.sendFile(path.join(__dirname+'/dist/user-management/index.html'));
+// // res.sendFile(path.join(__dirname+'/dist/common-client/index.html'));
 // });
 
 // // Start the app by listening on the default Heroku port
