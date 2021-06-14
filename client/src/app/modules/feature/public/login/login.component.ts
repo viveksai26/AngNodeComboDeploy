@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SocialAuthService } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { RoutePathConstant } from '../../../shared/constants/route-path-constants';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { NotificationService } from '../../../core/services/notification.service';
