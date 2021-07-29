@@ -23,4 +23,10 @@ export class HomeComponent implements OnInit {
   goToMemeGenerator() {
     window.open('https://viveksai26.github.io/meme-generator/', '_blank');
   }
+  goToArcadeGame() {
+    window.open('https://viveksai26.github.io/Arcade-Game/', '_blank');
+  }
+  goToNeighborhoodMaps() {
+    window.open('https://viveksai26.github.io/NeighborhoodMaps/', '_blank');
+  }
 }
