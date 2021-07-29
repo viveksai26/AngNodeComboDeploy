@@ -20,4 +20,7 @@ export class HomeComponent implements OnInit {
   goToPhotoFrame() {
     window.open('https://viveksai26.github.io/photo-frame/dashboard', '_blank');
   }
+  goToMemeGenerator() {
+    window.open('https://viveksai26.github.io/meme-generator/', '_blank');
+  }
 }
