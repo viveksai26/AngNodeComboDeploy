@@ -16,17 +16,20 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
   goToFD() {
     window.open('https://viveksai26.github.io/FD/', '_blank');
-  }
+  };
   goToPhotoFrame() {
     window.open('https://viveksai26.github.io/photo-frame/dashboard', '_blank');
-  }
+  };
   goToMemeGenerator() {
     window.open('https://viveksai26.github.io/meme-generator/', '_blank');
-  }
+  };
   goToArcadeGame() {
     window.open('https://viveksai26.github.io/Arcade-Game/', '_blank');
-  }
+  };
   goToNeighborhoodMaps() {
     window.open('https://viveksai26.github.io/NeighborhoodMaps/', '_blank');
-  }
+  };
+  goToUdacityFeeds() {
+    window.open('https://viveksai26.github.io/feed-runner/#', '_blank');
+  };
 }
