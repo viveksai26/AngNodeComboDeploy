@@ -10,5 +10,5 @@ export const environment = {
       client_secret: 'QsbVaVMIhcAXdi5Haf-jODx4'
     }
   },
-  baseURL: 'https://common-client-rs.herokuapp.com'
+  baseURL: 'https://common-client.herokuapp.com'
 };
