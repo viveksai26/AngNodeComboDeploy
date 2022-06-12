@@ -55,7 +55,7 @@
     "tslib": "^2.0.0",
     "web-push": "^3.4.4",
     "zone.js": "~0.10.2",
-    "cors": "^2.8.5",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",
