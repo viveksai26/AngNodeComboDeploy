@@ -6,10 +6,11 @@ import { HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 export class HttpInterceptor implements HttpInterceptor {
   constructor() {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('g-auth-token');
+    const token = localStorage.getItem('g-id-token');
+    // eslint-disable-next-line no-param-reassign
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`
+        Authorization: token
       }
     });
     return next.handle(request);
