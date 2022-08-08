@@ -8,6 +8,12 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((module) => module.UserModule)
+  },
+  {
+    path: 'manage-newsletter',
+    loadChildren: () =>
+      // eslint-disable-next-line implicit-arrow-linebreak
+      import('./manage-subscribers/manage-subscribers.module').then((module) => module.ManageSubscribersModule)
   }
 ];
 

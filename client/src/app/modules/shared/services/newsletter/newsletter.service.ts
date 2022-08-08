@@ -17,4 +17,15 @@ export class NewsletterService {
       }
     );
   }
+  getSubscribers() {
+    return this.http.get(ApiUrls.CHECK_SUBSCRIBERS);
+  }
+
+  clearSubscribers() {
+    return this.http.get(ApiUrls.CLEAR_SUBSCRIBERS);
+  }
+
+  sendNewsletter() {
+    return this.http.get(ApiUrls.SEND_NEWSLETTER);
+  }
 }

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center align-items-end">
+          <mat-card class="col-md-4" style="margin-top: 5%;">
+            <div class="d-flex justify-content-center">
+              <h1>Manage Subscription</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button mat-flat-button color="primary" class="fullwidth" (click)="getSubscribers()">Get Subscribers</button>
+                      {{subscribersData}}
+                    <button mat-flat-button color="primary" class="fullwidth" (click)="clearSubscribers()">clear Subscribers</button>
+                    <button mat-flat-button color="primary" class="fullwidth" (click)="sendNewsLetter()">send Newsletter</button>
+                </div>
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

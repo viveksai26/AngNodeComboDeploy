@@ -10,14 +10,14 @@ import { ErrorModule } from './modules/core/errors/error.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { PublicModule } from './modules/feature/public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from '../environments/environment';
 import { SecureModule } from './modules/feature/secure/secure.module';
 import { SnackBarComponent } from './modules/core/services/notification/snackbar.component';
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockTemplateCmp } from './block-template.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
   declarations: [AppComponent, SnackBarComponent],
@@ -37,7 +37,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // template: BlockTemplateCmp,
       message: 'Loading.................'
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    CoreModule
   ],
   providers: [
     {

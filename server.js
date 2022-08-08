@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use('/api', indexRouter);
 // catch 404 and forward to error handler
 app.use('/api', (req, res, next) => {
-  next(createError('Route not found', 404));
+  next(createError(404, 'Route not found'));
 });
 
 // error handler
