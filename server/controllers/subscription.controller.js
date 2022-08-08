@@ -80,6 +80,8 @@ class subscriptionController {
               }
             }
           );
+        } else {
+          res.send('subscriber already exists');
         }
       });
     } catch (err) {
