@@ -39,7 +39,7 @@ class subscriptionController {
     notification.notification.find().then((data) => {
       console.log(data);
       res.status(200).json({ message: 'Newsletter sent successfully.' });
-      data.forEach((val) => {
+      data?.forEach((val) => {
         webpush.sendNotification(val, JSON.stringify(notificationPayload)).catch((error) => {
           console.log(error);
           // const index = subscriptions.indexOf(sub);
@@ -51,23 +51,35 @@ class subscriptionController {
     });
   }
   static async subscribers(req, res, next) {
-    notification.notification.find().then((data) => res.status(200).json(data));
+    try {
+      notification.notification.find().then((data) => res.status(200).json(data));
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
   static async clearSubscriptions(req, res, next) {
-    notification.notification.deleteMany(() => true);
-    res.status(200).json('subscriptions cleared');
+    try {
+      notification.notification.deleteMany(() => true);
+      res.status(200).json('subscriptions cleared');
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
   static async subscribe(req, res, next) {
     const sub = req.body;
     console.log('Received Subscription on the server: ', sub);
-    notification.notification.insertMany(sub, (err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(result);
-      }
-    });
-    res.status(200).json({ message: 'Subscription added successfully.' });
+    try {
+      notification.notification.insertMany(sub, (err, result) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(result);
+        }
+      });
+      res.status(200).json({ message: 'Subscription added successfully.' });
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 }
 module.exports = subscriptionController;
