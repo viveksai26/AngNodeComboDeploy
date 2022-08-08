@@ -3,6 +3,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+require('./server/utils/mongoose/mongoose');
 var app = express();
 app.use(cors());
 /**
@@ -40,7 +41,7 @@ app.use('/api', (err, req, res, next) => {
 // Serve only the static files form the dist directory
 app.use('/common-client', express.static(`${__dirname}/dist/common-client`));
 app.get('/common-client/*', (req, res) => {
-  res.sendFile(path.join(`${__dirname  }/dist/common-client/index.html`));
+  res.sendFile(path.join(`${__dirname}/dist/common-client/index.html`));
 });
 app.use('/', (req, res, next) => {
   res.redirect('/common-client');
