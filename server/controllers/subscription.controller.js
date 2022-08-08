@@ -15,8 +15,8 @@ webpush.setVapidDetails('mailto:viveksai26@gmail.com', vapidkeys.publicKey, vapi
 class subscriptionController {
   constructor() {}
   static async newsletter(req, res, next) {
-    var message = req.query.message;
-    var title = req.query.title;
+    var message = req.query.message ? req.query.message : 'Helloo';
+    var title = req.query.title ? req.query.title : 'Test';
     const notificationPayload = {
       notification: {
         title,
@@ -41,12 +41,9 @@ class subscriptionController {
       console.log(data);
       res.status(200).json({ message: 'Newsletter sent successfully.' });
       data?.forEach((val) => {
-        webpush.sendNotification(val, JSON.stringify(notificationPayload)).catch((error) => {
+        webpush.sendNotification(JSON.parse(val.token), JSON.stringify(notificationPayload)).catch((error) => {
           console.log(error);
-          // const index = subscriptions.indexOf(sub);
-          // if (index > -1) {
-          // subscriptions.splice(index, 1);
-          // }
+          notification.notification.deleteOne(val).then((data) => console.log(data));
         });
       });
     });
@@ -70,17 +67,21 @@ class subscriptionController {
     const sub = req.body;
     console.log('Received Subscription on the server: ', sub);
     try {
-      const authHeader = req.get('Authorization');
-      notification.notification.insertMany(
-        { token: JSON.stringify(sub), email: authHeader ? jwtDecode(authHeader).email : '' },
-        (err, result) => {
-          if (err) {
-            res.send(err);
-          } else {
-            res.send(result);
-          }
+      notification.notification.findOne({ token: JSON.stringify(sub) }).then((data) => {
+        if (!data) {
+          const authHeader = req.get('Authorization');
+          notification.notification.insertMany(
+            { token: JSON.stringify(sub), email: authHeader ? jwtDecode(authHeader).email : '' },
+            (err, result) => {
+              if (err) {
+                res.send(err);
+              } else {
+                res.send(result);
+              }
+            }
+          );
         }
-      );
+      });
     } catch (err) {
       console.log(err);
     }
