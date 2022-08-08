@@ -1,3 +1,4 @@
+const jwtDecode = require('jwt-decode');
 const webpush = require('web-push');
 const notification = require('../utils/mongoose/mongooseScheme');
 let configuration = {};
@@ -69,16 +70,19 @@ class subscriptionController {
     const sub = req.body;
     console.log('Received Subscription on the server: ', sub);
     try {
-      notification.notification.insertMany(sub, (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send(result);
+      const authHeader = req.get('Authorization');
+      notification.notification.insertMany(
+        { token: JSON.stringify(sub), email: authHeader ? jwtDecode(authHeader).email : '' },
+        (err, result) => {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send(result);
+          }
         }
-      });
-      res.status(200).json({ message: 'Subscription added successfully.' });
-    } catch (error) {
-      res.status(500).json(error);
+      );
+    } catch (err) {
+      console.log(err);
     }
   }
 }

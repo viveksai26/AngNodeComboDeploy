@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppConstants } from 'client/src/app/modules/shared/constants/app-constants';
 import jwt_decode from 'jwt-decode';
 @Component({
@@ -11,12 +12,15 @@ export class UserProfileComponent implements OnInit {
   gUserData: any;
   fbUserData: any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const userToken = localStorage.getItem(AppConstants.G_ID_TOKEN);
     if (userToken) {
       this.gUserData = jwt_decode(userToken);
     }
+  }
+  goToManageSubscription() {
+    this.router.navigate(['manage-newsletter']);
   }
 }
