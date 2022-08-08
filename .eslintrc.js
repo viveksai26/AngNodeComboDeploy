@@ -1,7 +1,9 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    es2015: true,
+    node: 1
   },
   extends: ['plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',

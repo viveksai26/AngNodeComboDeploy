@@ -6,7 +6,7 @@ var app = express();
 /**
  * Routes
  */
-var indexRouter = require('./server/routes/index');
+var indexRouter = require('./server/routes/index.router');
 
 var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
@@ -18,6 +18,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.get('/*', function(req,res) {
+//     res.send('Hello');
+// // res.sendFile(path.join(__dirname+'/dist/common-client/index.html'));
+// });
 
 app.use('/api', indexRouter);
 // catch 404 and forward to error handler
